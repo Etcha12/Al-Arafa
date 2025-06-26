@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layanan - PSB AL-ARAFA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light-gray min-h-screen">
+
+    <!-- Header will be loaded here by script -->
+
+    <main class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-bold gradient-text inline-block mb-4">Layanan Kami</h1>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    PSB AL-ARAFA menyediakan berbagai layanan untuk mendukung kebutuhan belajar dan pengembangan diri Anda.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 card-hover-effect">
+                    <div class="text-dark-blue text-5xl mb-6">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark-blue mb-4">Pinjam Ruangan</h3>
+                    <p class="text-gray-700 mb-6">Pesan ruang produksi video, podcast, atau auditorium untuk berbagai kebutuhan acara dan kreasi Anda.</p>
+                    <button onclick="handleServiceClick('pinjamRuangan')" class="btn-secondary px-6 py-3 rounded-md font-semibold service-button">
+                        Ajukan Peminjaman <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 card-hover-effect">
+                    <div class="text-dark-blue text-5xl mb-6">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark-blue mb-4">Pinjam Buku</h3>
+                    <p class="text-gray-700 mb-6">Akses koleksi buku, jurnal, dan sumber daya digital kami. Tingkatkan pengetahuan Anda dengan beragam topik yang tersedia.</p>
+                    <button onclick="handleServiceClick('pinjamBuku')" class="btn-secondary px-6 py-3 rounded-md font-semibold service-button">
+                        Lihat Koleksi <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 card-hover-effect">
+                    <div class="text-dark-blue text-5xl mb-6">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark-blue mb-4">Daftar Pelatihan</h3>
+                    <p class="text-gray-700 mb-6">Ikuti berbagai pelatihan keterampilan digital dan hidup yang relevan untuk meningkatkan kompetensi dan peluang Anda.</p>
+                    <button onclick="handleServiceClick('daftarPelatihan')" class="btn-secondary px-6 py-3 rounded-md font-semibold service-button">
+                        Jadwal Pelatihan <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Service Modal (specific to layanan.html) -->
+    <div id="serviceModal" class="fixed inset-0 modal-overlay flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-2xl relative modal-content">
+            <button onclick="closeServiceModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <h2 id="serviceModalTitle" class="text-3xl font-bold text-center gradient-text mb-8"></h2>
+            <div id="serviceModalContent" class="text-gray-700">
+                <!-- Content will be injected by JS -->
+            </div>
+            <div id="serviceModalForm" class="mt-8">
+                <h3 class="text-xl font-bold text-dark-blue mb-4">Form Pengajuan</h3>
+                <form id="serviceSubmissionForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                        <input type="text" id="formName" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm" required readonly />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Nomor Anggota</label>
+                        <input type="text" id="formMemberId" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm" required readonly />
+                    </div>
+                    <div id="additionalServiceFormFields">
+                        <!-- Additional fields will be injected by JS -->
+                    </div>
+                    <button type="submit" class="w-full btn-primary py-2 rounded-lg">Kirim Permohonan</button>
+                </form>
+            </div>
+            <div id="confirmationMessage" class="hidden mt-8 p-4 bg-green-100 border border-green-300 text-green-800 rounded-lg text-center">
+                <i class="fas fa-check-circle text-2xl mb-2"></i>
+                <p class="font-semibold text-lg">Permohonan Anda berhasil diajukan!</p>
+                <p id="confirmationDetail" class="mt-2 text-sm"></p>
+                <button onclick="closeServiceModal()" class="mt-4 btn-secondary px-4 py-2 rounded-md">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer will be loaded here by script -->
+
+    <script src="script.js"></script>
+</body>
+</html>

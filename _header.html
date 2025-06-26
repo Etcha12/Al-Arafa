@@ -1,0 +1,85 @@
+<!-- _header.html -->
+<header class="bg-dark-blue shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <a href="index.html" class="text-3xl font-bold text-white">PSB AL-ARAFA</a>
+        </div>
+        
+        <nav class="flex items-center space-x-8">
+            <a href="index.html" class="text-white text-lg font-medium hover:text-green-300 transition duration-300">Beranda</a>
+            <a href="fasilitas.html" class="text-white text-lg font-medium hover:text-green-300 transition duration-300">Fasilitas</a>
+            <a href="program.html" class="text-white text-lg font-medium hover:text-green-300 transition duration-300">Program</a>
+            <a href="layanan.html" class="text-white text-lg font-medium hover:text-green-300 transition duration-300">Layanan</a>
+            <a href="kontak.html" class="text-white text-lg font-medium hover:text-green-300 transition duration-300">Kontak</a>
+            
+            <div id="authArea" class="flex items-center space-x-3">
+                <!-- Auth buttons will be injected/managed by script.js -->
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Login Modal (should be included in every page that might need login) -->
+<div id="loginModal" class="fixed inset-0 modal-overlay flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md relative modal-content">
+        <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        <h1 class="text-3xl font-bold text-center gradient-text mb-8">Masuk ke PSB AL-ARAFA</h1>
+        <form id="loginForm" class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Anggota / Username</label>
+                <div class="relative">
+                    <i class="fas fa-id-card absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="memberIdOrUsername" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Nomor Anggota atau Username" required />
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <div class="relative">
+                    <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="password" id="password" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••" required />
+                </div>
+            </div>
+            <button type="submit" class="w-full btn-primary py-3 rounded-lg shadow-md">
+                <i class="fas fa-sign-in-alt mr-2"></i>Masuk Sekarang
+            </button>
+            <div class="text-center mt-4">
+                <a href="#" class="text-sm text-blue-600 hover:underline">Lupa password?</a>
+            </div>
+            <p id="errorMessage" class="text-red-500 text-sm text-center hidden mt-2">
+                <i class="fas fa-exclamation-circle mr-1"></i> Nomor anggota, username, atau password salah.
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- Not Logged In Modal (should be included in every page that might need login) -->
+<div id="notLoggedInModal" class="fixed inset-0 modal-overlay flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-sm relative modal-content text-center">
+        <button onclick="closeNotLoggedInModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        <i class="fas fa-info-circle text-5xl text-blue-500 mb-6"></i>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Akses Dibatasi</h2>
+        <p class="text-gray-600 mb-6">Anda perlu **login** terlebih dahulu untuk mengakses fitur ini.</p>
+        <button onclick="goToLoginFromNotification()" class="btn-primary px-6 py-2 rounded-md font-semibold">
+            Login Sekarang
+        </button>
+    </div>
+</div>
+
+<script>
+    // Function to load header content
+    function loadHeader() {
+        fetch('_header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('afterbegin', data);
+                // Re-initialize auth UI after header is loaded
+                updateAuthUI();
+            })
+            .catch(error => console.error('Error loading header:', error));
+    }
+    document.addEventListener('DOMContentLoaded', loadHeader);
+</script>

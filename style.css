@@ -1,0 +1,90 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8F8F8; /* Light gray background */
+    color: #333333;
+}
+
+/* Custom Gradient Text for Headings */
+.gradient-text {
+    background: linear-gradient(45deg, #1A2C42, #2E8B57); /* Dark Blue to Dark Green */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Card Hover Effect */
+.card-hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Modal Styling */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.modal-content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    background-color: #1A2C42; /* Dark Blue */
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #2E8B57; /* Dark Green */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #2E8B57; /* Dark Green */
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-secondary:hover {
+    background-color: #1A2C42; /* Dark Blue */
+    transform: translateY(-2px);
+}
+
+/* Specific background for sections */
+.bg-dark-blue {
+    background-color: #1A2C42;
+}
+.bg-light-gray {
+    background-color: #F8F8F8;
+}
+.bg-white {
+    background-color: #FFFFFF;
+}
+
+/* Illustration Styling (if using SVG directly or as background) */
+.illustration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.illustration-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
