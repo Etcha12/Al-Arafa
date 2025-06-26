@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL-ARAFA LRC - Dashboard Pengguna</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">AL-ARAFA <span class="highlight">LRC</span></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="facilities.html">Fasilitas</a></li>
+                    <li><a href="programs.html">Program</a></li>
+                    <li><a href="services.html">Layanan</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            <div class="auth-controls">
+                <button id="login-btn" class="btn btn-primary hidden">Login</button>
+                <div id="user-profile">
+                    <span id="welcome-message"></span>
+                    <button id="logout-btn" class="btn btn-secondary">Logout</button>
+                </div>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <section class="dashboard-section">
+            <div class="container">
+                <h2>Dashboard Pengguna</h2>
+                <p>Selamat datang di dashboard Anda, <span id="dashboard-username"></span>. Di sini Anda dapat mengelola peminjaman, pendaftaran pelatihan, dan melihat riwayat aktivitas.</p>
+                
+                <div class="dashboard-widgets">
+                    <div class="widget-item">
+                        <h3>Peminjaman Aktif</h3>
+                        <p>Anda memiliki <strong>2</strong> buku yang sedang dipinjam.</p>
+                        <a href="#" class="btn btn-primary-outline">Lihat Detail</a>
+                    </div>
+                    <div class="widget-item">
+                        <h3>Pelatihan Terdaftar</h3>
+                        <p>Anda terdaftar di <strong>1</strong> pelatihan mendatang.</p>
+                        <a href="#" class="btn btn-primary-outline">Jadwal Saya</a>
+                    </div>
+                    <div class="widget-item">
+                        <h3>Riwayat Aktivitas</h3>
+                        <p>Lihat semua interaksi Anda dengan AL-ARAFA LRC.</p>
+                        <a href="#" class="btn btn-primary-outline">Lihat Riwayat</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 AL-ARAFA LRC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Check authentication when dashboard page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth(); // This will redirect if not logged in
+            if (currentUser) {
+                document.getElementById('dashboard-username').textContent = currentUser.username;
+            }
+        });
+    </script>
+</body>
+</html>
