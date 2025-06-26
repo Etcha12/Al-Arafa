@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL-ARAFA LRC - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo-small">
+                <a href="index.html">AL-ARAFA <span class="highlight">LRC</span></a>
+            </div>
+            <h2>Login ke Akun Anda</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Masukkan username Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <p id="login-error" class="error-message hidden">Username atau password salah.</p>
+            </form>
+            <div class="login-footer">
+                <a href="#">Lupa Password?</a>
+                <span>Belum punya akun? <a href="#">Daftar Sekarang</a></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
